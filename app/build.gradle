@@ -1,0 +1,115 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+androidExtensions {
+    experimental = true
+}
+
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
+}
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "io.ogasimli.activitytransition"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+ext {
+    junitVersion = '4.12'
+    runnerVersion = '1.0.1'
+    rulesVersion = '1.0.1'
+    espressoVersion = '3.0.1'
+    ankoVersion = '0.10.3'
+    supportLibVersion = '27.1.0'
+    gcmVersion = '12.0.0'
+    daggerVersion = '2.13'
+    roomVersion = '1.0.0'
+}
+
+dependencies {
+    // Local libraries
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    // Dependencies for local unit tests
+    testImplementation "junit:junit:$junitVersion"
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation "com.android.support.test:runner:$runnerVersion"
+    androidTestImplementation "com.android.support.test:rules:$rulesVersion"
+
+    // Espresso UI Testing dependencies.
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$espressoVersion"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$espressoVersion"
+    implementation "com.android.support.test.espresso:espresso-idling-resource:$espressoVersion"
+
+    // Android-Debug-Database
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.3'
+
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+
+    // Kotlin Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:0.21"
+
+    // Kotlin Anko
+    implementation "org.jetbrains.anko:anko-commons:$ankoVersion"
+    implementation "org.jetbrains.anko:anko-design:$ankoVersion"
+    implementation "org.jetbrains.anko:anko-support-v4-commons:$ankoVersion"
+
+    // Android Support
+    implementation "com.android.support:support-v4:$supportLibVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibVersion"
+    implementation "com.android.support:cardview-v7:$supportLibVersion"
+    implementation "com.android.support:design:$supportLibVersion"
+    implementation "com.android.support:gridlayout-v7:$supportLibVersion"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    // GMS libraries
+    implementation "com.google.android.gms:play-services-location:$gcmVersion"
+
+    // Dagger 2
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    compileOnly 'javax.annotation:jsr250-api:1.0'
+
+    // Room ORM
+    implementation "android.arch.persistence.room:runtime:$roomVersion"
+    implementation "android.arch.persistence.room:rxjava2:$roomVersion"
+    kapt "android.arch.persistence.room:compiler:$roomVersion"
+
+    // RxJava/RxAndroid
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.7'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    // Timber
+    implementation 'com.jakewharton.timber:timber:4.6.1'
+}

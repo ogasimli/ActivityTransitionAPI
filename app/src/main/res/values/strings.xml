@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Activity Transition</string>
+    <string name="start_txt">Start</string>
+    <string name="progress_dialog_msg">Please wait…</string>
+    <string name="extract_progress_dialog_title">Preparing data</string>
+
+    <!-- Error messages -->
+    <string name="no_data_found_error_msg">No data was found in database.</string>
+    <string name="db_fetch_error_msg">Error occurred while fetching DB</string>
+
+    <!-- Notification channel names -->
+    <string name="location_channel_name">Activity Transition Service</string>
+    <string name="default_channel_name">Activity Transition</string>
+
+    <!-- Play Icon -->
+    <string name="play_icon_upper_path_data" translatable="false">M 44 32 L 44 64 L 100 64 L 100 64 Z</string>
+    <string name="play_icon_bottom_path_data" translatable="false">M 44 96 L 44 64 L 100 64 L 100 64 Z</string>
+
+    <!-- Stop Icon -->
+    <string name="stop_icon_upper_path_data" translatable="false">M 32 32 L 32 64 L 96 64 L 96 32 Z</string>
+    <string name="stop_icon_bottom_path_data" translatable="false">M 32 96 L 32 64 L 96 64 L 96 96 Z</string>
+
+    <!-- Groups -->
+    <string name="play_icon_group_top" translatable="false">upperPart</string>
+    <string name="play_icon_group_bottom" translatable="false">bottomPart</string>
+    <string name="play_icon_group_parts" translatable="false">parts</string>
+
+    <!-- Path Name -->
+    <string name="play_icon_top_path_name" translatable="false">upper</string>
+    <string name="play_icon_bottom_path_name" translatable="false">bottom</string>
+</resources>

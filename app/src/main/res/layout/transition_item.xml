@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/transition_item_card"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    app:cardElevation="2dp"
+    app:contentPaddingLeft="10dp"
+    app:contentPaddingRight="10dp"
+    app:contentPaddingTop="16dp"
+    app:contentPaddingBottom="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/activity_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="16sp"
+            android:drawablePadding="8dp"
+            tools:text="Start driving"
+            tools:drawableStart="@drawable/ic_walk_enter"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/time-txt"/>
+
+        <TextView
+            android:id="@+id/time-txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/colorSecondaryText"
+            tools:text="10 Jun 2018 14:22:53"
+            android:textSize="12sp"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
