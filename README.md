@@ -14,7 +14,7 @@ Please follow [this link](https://android-developers.googleblog.com/2018/03/acti
 
 Press play FAB to start detecting activity transitions. Once new activity transition is detected it will be saved in database and displayed in the activity. Activity detection will run silently in foreground service. Therefore there is no need to leave the app open. To terminate the detection service, open the app again and press stop FAB.
 
-<img src="./screenshot/main_screen.PNG" width="250">
+<img src="./screenshot/main_screen.png" width="250">
 
 ## License
 
