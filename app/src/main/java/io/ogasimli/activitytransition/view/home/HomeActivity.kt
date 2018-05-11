@@ -103,7 +103,6 @@ class HomeActivity : BaseActivity(), HomeActivityView {
                 .subscribe { event ->
                     when (event.type) {
                         EventType.TRANSITION_UPDATE -> presenter.animateFab(this, fab)
-                        else -> return@subscribe
                     }
                 }
                 .registerInBus(this)
@@ -111,20 +110,22 @@ class HomeActivity : BaseActivity(), HomeActivityView {
 
     private fun setupRecyclerView() {
         // Setup RecyclerView
-        recycler_view.setHasFixedSize(true)
-        recycler_view.itemAnimator = DefaultItemAnimator()
-        recycler_view.adapter = transitionsAdapter
-        recycler_view.layoutManager = linearLayoutManager
-        recycler_view.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-                if (dy > 0 && fab.visibility == View.VISIBLE) {
-                    fab.hide()
-                } else if (dy < 0 && fab.visibility != View.VISIBLE) {
-                    fab.show()
+        recycler_view?.apply {
+            setHasFixedSize(true)
+            itemAnimator = DefaultItemAnimator()
+            adapter = transitionsAdapter
+            layoutManager = linearLayoutManager
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+                    super.onScrolled(recyclerView, dx, dy)
+                    if (dy > 0 && fab?.visibility == View.VISIBLE) {
+                        fab?.hide()
+                    } else if (dy < 0 && fab?.visibility != View.VISIBLE) {
+                        fab?.show()
+                    }
                 }
-            }
-        })
+            })
+        }
     }
 
     /* MvpView methods */
